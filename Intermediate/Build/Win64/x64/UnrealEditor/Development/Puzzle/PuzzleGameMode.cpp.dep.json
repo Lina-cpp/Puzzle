@@ -1,0 +1,30 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\projekty\\unrealprojects\\coop\\puzzle\\source\\puzzle\\puzzlegamemode.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\x64\\puzzleeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\puzzle\\definitions.puzzle.h",
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\source\\puzzle\\puzzlegamemode.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\unrealeditor\\inc\\puzzle\\uht\\puzzlegamemode.generated.h",
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\source\\puzzle\\puzzlecharacter.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "f:\\unreal silniki\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\unrealeditor\\inc\\puzzle\\uht\\puzzlecharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

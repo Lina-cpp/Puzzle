@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\unrealeditor\\inc\\puzzle\\uht\\puzzle.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\x64\\puzzleeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\projekty\\unrealprojects\\coop\\puzzle\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\puzzle\\definitions.puzzle.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
