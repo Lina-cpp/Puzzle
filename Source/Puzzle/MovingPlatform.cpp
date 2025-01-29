@@ -24,6 +24,9 @@ void AMovingPlatform::BeginPlay()
         SetReplicateMovement(true);   
     }
 
+    GlobalStartLocation = GetActorLocation();
+    GlobalTargetLocation = GetTransform().TransformPosition(TargetLocation);  //Target loc. is local space val and location global!!!
+    
 }
 
 void AMovingPlatform::Tick(float DeltaTime)
@@ -37,10 +40,21 @@ void AMovingPlatform::Tick(float DeltaTime)
     {
 
         FVector Location = GetActorLocation();  //save actor location in var
-        //Calculate difference between TargetLocation and ActorLocation and normalize
-        FVector GlobalTargetLocation = GetTransform().TransformPosition(TargetLocation);  //Target loc. is local space val and location global!!!
-        FVector Direction = (GlobalTargetLocation - Location).GetSafeNormal();   
-        Location += MoveValues * DeltaTime * Direction;     //Adjust location bo speed, delta and direction
+        //Calculate difference between TargetLocation and GlobalActorLocation and normalize
+        float JourneyLength = (GlobalTargetLocation - GlobalStartLocation).Size(); //whole path
+        float JourneyTraveled = (Location - GlobalStartLocation).Size();           //where on path platform currently is
+
+        if (JourneyTraveled >= JourneyLength)
+        {
+            //When platform reach target - swap targets so it would go back
+            FVector Swap = GlobalStartLocation;
+            GlobalStartLocation = GlobalTargetLocation;
+            GlobalTargetLocation = Swap;
+        }
+
+        //MovePlatform
+        FVector Direction = (GlobalTargetLocation - GlobalStartLocation).GetSafeNormal();   
+        Location += Speed * DeltaTime * Direction;     //Adjust location bo speed, delta and direction
         SetActorLocation(Location);
   
     }

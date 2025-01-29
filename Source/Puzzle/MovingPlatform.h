@@ -14,18 +14,23 @@ class PUZZLE_API AMovingPlatform : public AStaticMeshActor
 {
 	GENERATED_BODY()
 	
-	public:
-		AMovingPlatform();
+public:
+	AMovingPlatform();
 
 	virtual void BeginPlay() override;
 	
 	virtual void Tick(float DeltaTime) override;
 
+	//Move speed
 	UPROPERTY(EditAnywhere, Category="Editable Vars", DisplayName="AxisSpeed")
-	FVector MoveValues;
-
+	float Speed;
 	//Location where Platform will move to
 	UPROPERTY(EditAnywhere, Category="Editable Vars", meta=(MakeEditWidget="true"))
 	FVector TargetLocation;
+
+private:
+	
+	FVector GlobalTargetLocation;
+	FVector	GlobalStartLocation;
 	
 };
