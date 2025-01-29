@@ -13,6 +13,19 @@ AMovingPlatform::AMovingPlatform()
 
 }
 
+void AMovingPlatform::BeginPlay()
+{
+    Super::BeginPlay();
+
+    //If server - allow to replicate
+    if (HasAuthority())
+    {
+        SetReplicates(true);
+        SetReplicateMovement(true);   
+    }
+
+}
+
 void AMovingPlatform::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
@@ -22,11 +35,13 @@ void AMovingPlatform::Tick(float DeltaTime)
     //check if "HasAuthority" aka is a Server
     if (HasAuthority())
     {
-        //get current location and add x every tick(DeltaTime)
-        FVector Location = GetActorLocation();
-        //multiplies Location Vector by MoveValues(BP editable) vector x DeltaTime
-        Location += FVector(MoveValues * DeltaTime);
-        //SetActorLocation in tick by new Location
-        SetActorLocation(Location); 
+
+        FVector Location = GetActorLocation();  //save actor location in var
+        //Calculate difference between TargetLocation and ActorLocation and normalize
+        FVector GlobalTargetLocation = GetTransform().TransformPosition(TargetLocation);  //Target loc. is local space val and location global!!!
+        FVector Direction = (GlobalTargetLocation - Location).GetSafeNormal();   
+        Location += MoveValues * DeltaTime * Direction;     //Adjust location bo speed, delta and direction
+        SetActorLocation(Location);
+  
     }
 }
