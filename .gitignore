@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+
+DerivedDataCache/*
+Intermediate/*
+Platforms/*
+Saved/*
+Binaries/*
+Build/*
