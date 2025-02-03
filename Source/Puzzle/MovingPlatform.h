@@ -28,9 +28,15 @@ public:
 	UPROPERTY(EditAnywhere, Category="Editable Vars", meta=(MakeEditWidget="true"))
 	FVector TargetLocation;
 
+	//functions to add/remove triggers
+	void AddActiveTrigger();
+	void RemoveActiveTrigger();
+
 private:
 	
 	FVector GlobalTargetLocation;
 	FVector	GlobalStartLocation;
-	
+
+	UPROPERTY(EditAnywhere)
+		int ActiveTriggers = 1; //Triggers for platforms, if 0 platform wont move
 };

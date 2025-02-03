@@ -29,6 +29,9 @@ private:
 		UPROPERTY(VisibleAnywhere)
 		class UStaticMeshComponent* TriggerMesh;
 
+		UPROPERTY(EditAnywhere, Category = Trigger)
+		TArray<class AMovingPlatform*> PlatformToTriggers; //array of platoforms that trigger should activate
+
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	

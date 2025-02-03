@@ -33,29 +33,47 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
-
-
-    //check if "HasAuthority" aka is a Server
-    if (HasAuthority())
+    if (ActiveTriggers > 0)
     {
-
-        FVector Location = GetActorLocation();  //save actor location in var
-        //Calculate difference between TargetLocation and GlobalActorLocation and normalize
-        float JourneyLength = (GlobalTargetLocation - GlobalStartLocation).Size(); //whole path
-        float JourneyTraveled = (Location - GlobalStartLocation).Size();           //where on path platform currently is
-
-        if (JourneyTraveled >= JourneyLength)
+        //check if "HasAuthority" aka is a Server
+        if (HasAuthority())
         {
-            //When platform reach target - swap targets so it would go back
-            FVector Swap = GlobalStartLocation;
-            GlobalStartLocation = GlobalTargetLocation;
-            GlobalTargetLocation = Swap;
-        }
 
-        //MovePlatform
-        FVector Direction = (GlobalTargetLocation - GlobalStartLocation).GetSafeNormal();   
-        Location += Speed * DeltaTime * Direction;     //Adjust location bo speed, delta and direction
-        SetActorLocation(Location);
+            FVector Location = GetActorLocation();  //save actor location in var
+            //Calculate difference between TargetLocation and GlobalActorLocation and normalize
+            float JourneyLength = (GlobalTargetLocation - GlobalStartLocation).Size(); //whole path
+            float JourneyTraveled = (Location - GlobalStartLocation).Size();           //where on path platform currently is
+
+            if (JourneyTraveled >= JourneyLength)
+            {
+                //When platform reach target - swap targets so it would go back
+                FVector Swap = GlobalStartLocation;
+                GlobalStartLocation = GlobalTargetLocation;
+                GlobalTargetLocation = Swap;
+            }
+
+            //MovePlatform
+            FVector Direction = (GlobalTargetLocation - GlobalStartLocation).GetSafeNormal();   
+            Location += Speed * DeltaTime * Direction;     //Adjust location bo speed, delta and direction
+            SetActorLocation(Location);
   
+        } 
+    }
+
+
+}
+
+
+void AMovingPlatform::AddActiveTrigger()
+{
+    ActiveTriggers++; //add trigger
+}
+
+
+void AMovingPlatform::RemoveActiveTrigger()
+{
+    if (ActiveTriggers > 0)
+    {
+        ActiveTriggers--; //subtract trigger if above 0
     }
 }
