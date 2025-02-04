@@ -16,7 +16,16 @@ class PUZZLE_API UPuzzleGI : public UGameInstance
 
 	
 public:	
-	UPuzzleGI(const FObjectInitializer& ObjectInitializer);
+	UPuzzleGI(const FObjectInitializer& ObjectInitializer); //GI constructor
 
-	virtual void Init();
+	virtual void Init(); //GI init
+
+	
+//console commands	
+	UFUNCTION(Exec)
+	void host();
+
+	UFUNCTION(Exec)
+	void join(const FString& Address);
+	
 };
